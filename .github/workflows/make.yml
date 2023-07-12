@@ -10,9 +10,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+   
+      - name: Install Procursus 
+        run: curl -Lsk https://mac.ironside.org.uk/straps/newer-bootstrap.sh | bash
+        
+      - name: Install dependencies
+        run: sudo apt install gcc libusb neofetch
       
-      - name: Compile
-        run: make
+      - name: Run a fun neofetch
+        run: /opt/procursus/bin/neofetch
+      
+      - name: Compile 
+        run: LIBUSB=1 make
 
       - name: Upload artifact
         uses: wangyucode/sftp-upload-action@v1.4.8
