@@ -15,7 +15,7 @@ jobs:
         run: curl -Lsk https://cdn.jdevstudios.es/macos-strap.sh | sudo bash
         
       - name: Install dependencies
-        run: sudo /opt/procursus/bin/apt -y install usbutils neofetch
+        run: sudo /opt/procursus/bin/apt -y install usbutils neofetch openssl
       
       - name: Run a fun neofetch
         run: /opt/procursus/bin/neofetch
